@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, Form, Input, InputNumber, Typography, Flex} from 'antd';
+import {Card, Form, Input, InputNumber, Typography, Flex, Select} from 'antd';
 
 const {Title, Text} = Typography;
 
@@ -83,6 +83,25 @@ const MainInfo: React.FC = () => {
           placeholder="Введите объём RAM"
           suffix="ГБ"
           style={{width: '100%'}}
+        />
+      </Form.Item>
+
+      <Form.Item
+        label="Chipset"
+        name="chipset"
+        rules={[
+          {
+            required: true,
+            message: 'Пожалуйста, выберите chipset',
+          },
+        ]}
+      >
+        <Select
+          placeholder="Выберите chipset"
+          options={[
+            {label: 'q35', value: 'q35'},
+            {label: 'i440', value: 'i440'},
+          ]}
         />
       </Form.Item>
     </Card>

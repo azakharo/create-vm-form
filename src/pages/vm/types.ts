@@ -3,4 +3,5 @@ export interface CreateVmFormValues {
   description: string;
   cpuCount: number;
   ramSize: number;
+  chipset: 'q35' | 'i440';
 }

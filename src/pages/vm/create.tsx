@@ -59,6 +59,7 @@ export const CreateVmPage = () => {
             description: '',
             cpuCount: 1,
             ramSize: 4,
+            chipset: 'q35',
           }}
         >
           <MainInfo />
