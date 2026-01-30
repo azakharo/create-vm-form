@@ -1,4 +1,4 @@
-import {CreateVmPage} from './pages/CreateVm/create';
+import {CreateVmPage} from './pages/CreateVm';
 
 function App() {
   return <CreateVmPage />;
