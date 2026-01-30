@@ -1,6 +1,7 @@
 import {Button, Layout, Typography, Form, Space} from 'antd';
 import type {CreateVmFormValues} from './types';
 import MainInfo from './MainInfo';
+import HddDisks from './HddDisks';
 
 const {Header, Content} = Layout;
 const {Title} = Typography;
@@ -60,9 +61,11 @@ export const CreateVmPage = () => {
             cpuCount: 1,
             ramSize: 4,
             chipset: 'q35',
+            hddDisks: [],
           }}
         >
           <MainInfo />
+          <HddDisks />
 
           {/* Action buttons */}
           <Form.Item style={{marginTop: '24px'}}>
