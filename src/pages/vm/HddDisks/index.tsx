@@ -36,7 +36,6 @@ const HddDisks: React.FC = () => {
       }
       extra={
         <Button
-          type="primary"
           icon={<PlusOutlined />}
           onClick={() => {
             const disks = (form.getFieldValue('hddDisks') as HddDisk[]) || [];
@@ -51,9 +50,7 @@ const HddDisks: React.FC = () => {
               },
             ]);
           }}
-        >
-          Добавить диск
-        </Button>
+        ></Button>
       }
     >
       <Form.Item
