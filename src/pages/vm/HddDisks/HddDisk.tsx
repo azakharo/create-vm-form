@@ -41,7 +41,8 @@ const HddDisk: React.FC<HddDiskProps> = ({field, index, remove, chipset}) => {
         border: '1px solid #e8e8e8',
         borderRadius: '8px',
         padding: '16px',
-        marginBottom: '16px',
+        maxWidth: '40ch',
+        flex: '1 0 auto',
       }}
     >
       <div

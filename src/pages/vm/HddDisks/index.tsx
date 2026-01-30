@@ -72,7 +72,7 @@ const HddDisks: React.FC = () => {
         ]}
       >
         {(fields, {remove}) => (
-          <>
+          <Flex wrap="wrap" gap={16}>
             {fields.map((field, index) => (
               <HddDiskComponent
                 key={field.key}
@@ -82,7 +82,7 @@ const HddDisks: React.FC = () => {
                 chipset={chipset}
               />
             ))}
-          </>
+          </Flex>
         )}
       </Form.List>
     </Card>
