@@ -39,7 +39,7 @@ export const CreateVmPage = () => {
             &larr;
           </Button>
           <Title level={2} style={{margin: 0, fontSize: '20px'}}>
-            Создать ВМ
+            Создание ВМ
           </Title>
         </Space>
       </Header>
@@ -57,7 +57,8 @@ export const CreateVmPage = () => {
             name: '',
           }}
         >
-          Here will be the Content
+          <div>Here will be the form sections with inputs</div>
+
           {/* Action buttons */}
           <Form.Item style={{marginTop: '24px'}}>
             <Space>
