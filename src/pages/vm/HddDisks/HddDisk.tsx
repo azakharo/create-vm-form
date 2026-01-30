@@ -107,6 +107,7 @@ const HddDisk: React.FC<HddDiskProps> = ({field, index, remove, chipset}) => {
         name={[field.name, 'diskInterface']}
         initialValue="SCSI"
         rules={[{required: true, message: 'Обязательное поле'}]}
+        style={{marginBottom: 0}}
       >
         <Select
           options={getInterfaceOptions()}
