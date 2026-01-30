@@ -1,4 +1,5 @@
 import {Button, Layout, Typography, Form, Space} from 'antd';
+import {ArrowLeftOutlined} from '@ant-design/icons';
 import type {CreateVmFormValues} from './types';
 import MainInfo from './MainInfo';
 import HddDisks from './HddDisks';
@@ -37,9 +38,11 @@ export const CreateVmPage = () => {
         }}
       >
         <Space style={{height: '64px', alignItems: 'center'}}>
-          <Button type="text" onClick={handleCancel}>
-            &larr;
-          </Button>
+          <Button
+            type="text"
+            onClick={handleCancel}
+            icon={<ArrowLeftOutlined />}
+          ></Button>
           <Title level={2} style={{margin: 0, fontSize: '20px'}}>
             Создание ВМ
           </Title>
