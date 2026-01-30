@@ -56,7 +56,7 @@ const HddDisks: React.FC = () => {
         </Button>
       }
     >
-      <Form.List
+      <Form.Item
         name="hddDisks"
         rules={[
           {
@@ -71,20 +71,22 @@ const HddDisks: React.FC = () => {
           },
         ]}
       >
-        {(fields, {remove}) => (
-          <Flex wrap="wrap" gap={16}>
-            {fields.map((field, index) => (
-              <HddDiskComponent
-                key={field.key}
-                field={field}
-                index={index}
-                remove={remove}
-                chipset={chipset}
-              />
-            ))}
-          </Flex>
-        )}
-      </Form.List>
+        <Form.List name="hddDisks">
+          {(fields, {remove}) => (
+            <Flex wrap="wrap" gap={16}>
+              {fields.map((field, index) => (
+                <HddDiskComponent
+                  key={field.key}
+                  field={field}
+                  index={index}
+                  remove={remove}
+                  chipset={chipset}
+                />
+              ))}
+            </Flex>
+          )}
+        </Form.List>
+      </Form.Item>
     </Card>
   );
 };
