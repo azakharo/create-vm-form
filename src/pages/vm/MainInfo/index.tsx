@@ -81,7 +81,7 @@ const MainInfo: React.FC = () => {
           min={1}
           max={256}
           placeholder="Введите объём RAM"
-          addonAfter="ГБ"
+          suffix="ГБ"
           style={{width: '100%'}}
         />
       </Form.Item>
