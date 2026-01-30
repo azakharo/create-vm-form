@@ -26,6 +26,7 @@ const MainInfo: React.FC = () => {
           </Text>
         </Flex>
       }
+      style={{marginBottom: 24}}
     >
       <Row gutter={16}>
         <Col span={12}>

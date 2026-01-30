@@ -70,6 +70,7 @@ const HddDisks: React.FC = () => {
             },
           },
         ]}
+        style={{marginBottom: 0}}
       >
         <Form.List name="hddDisks">
           {(fields, {remove}) => (
