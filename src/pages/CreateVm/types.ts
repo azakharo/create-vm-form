@@ -1,4 +1,5 @@
 export interface HddDisk {
+  id: string;
   name: string;
   enabled: boolean;
   size: number;

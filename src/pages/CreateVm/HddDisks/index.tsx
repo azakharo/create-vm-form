@@ -43,6 +43,7 @@ const HddDisks: React.FC = () => {
             form.setFieldValue('hddDisks', [
               ...disks,
               {
+                id: `disk-${nextIndex}`,
                 name: `disk-${nextIndex}`,
                 enabled: true,
                 size: 128,
