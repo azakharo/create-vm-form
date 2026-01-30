@@ -55,11 +55,7 @@ const HddDisk: React.FC<HddDiskProps> = ({field, index, remove, chipset}) => {
       </div>
 
       {/* Name field - auto-generated, hidden */}
-      <Form.Item
-        name={[field.name, 'name']}
-        initialValue={`disk-${index + 1}`}
-        hidden
-      />
+      <Form.Item name={[field.name, 'name']} hidden />
 
       {/* Enabled field */}
       <Form.Item

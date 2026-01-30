@@ -9,7 +9,7 @@ const {Title, Text} = Typography;
 const HddDisks: React.FC = () => {
   const form = Form.useFormInstance();
 
-  const chipset = Form.useWatch('chipset', form) as 'q35' | 'i440' | undefined;
+  const chipset = Form.useWatch('chipset', form) as 'q35' | 'i440';
 
   // Handle chipset change - convert IDE to SCSI
   useEffect(() => {
@@ -79,7 +79,7 @@ const HddDisks: React.FC = () => {
                 field={field}
                 index={index}
                 remove={remove}
-                chipset={chipset || 'q35'}
+                chipset={chipset}
               />
             ))}
           </>
