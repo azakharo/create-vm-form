@@ -1,5 +1,13 @@
 import React from 'react';
-import {Form, InputNumber, Select, Switch, Typography, Button} from 'antd';
+import {
+  Form,
+  Input,
+  InputNumber,
+  Select,
+  Switch,
+  Typography,
+  Button,
+} from 'antd';
 import {DeleteOutlined} from '@ant-design/icons';
 import type {NamePath} from 'antd/es/form/interface';
 
@@ -54,8 +62,14 @@ const HddDisk: React.FC<HddDiskProps> = ({field, index, remove, chipset}) => {
         />
       </div>
 
-      {/* Name field - auto-generated, hidden */}
-      <Form.Item name={[field.name, 'name']} hidden />
+      {/* Name field */}
+      <Form.Item
+        label="Имя"
+        name={[field.name, 'name']}
+        rules={[{required: true, message: 'Обязательное поле'}]}
+      >
+        <Input placeholder="Введите имя диска" />
+      </Form.Item>
 
       {/* Enabled field */}
       <Form.Item
