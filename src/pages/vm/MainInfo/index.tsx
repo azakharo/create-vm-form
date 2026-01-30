@@ -1,15 +1,6 @@
 import React from 'react';
-import {
-  Card,
-  Form,
-  Input,
-  InputNumber,
-  Typography,
-  Flex,
-  Select,
-  Row,
-  Col,
-} from 'antd';
+import {Card, Form, Input, Typography, Flex, Select, Row, Col} from 'antd';
+import {IntegerInput} from '../../../components';
 
 const {Title, Text} = Typography;
 
@@ -72,7 +63,7 @@ const MainInfo: React.FC = () => {
               },
             ]}
           >
-            <InputNumber
+            <IntegerInput
               min={1}
               max={10}
               placeholder="Введите количество CPU"
@@ -98,7 +89,7 @@ const MainInfo: React.FC = () => {
               },
             ]}
           >
-            <InputNumber
+            <IntegerInput
               min={1}
               max={256}
               placeholder="Введите объём RAM"

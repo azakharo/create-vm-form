@@ -1,15 +1,8 @@
 import React from 'react';
-import {
-  Form,
-  Input,
-  InputNumber,
-  Select,
-  Switch,
-  Typography,
-  Button,
-} from 'antd';
+import {Form, Input, Select, Switch, Typography, Button} from 'antd';
 import {DeleteOutlined} from '@ant-design/icons';
 import type {NamePath} from 'antd/es/form/interface';
+import {IntegerInput} from '../../../components';
 
 const {Text} = Typography;
 
@@ -98,7 +91,7 @@ const HddDisk: React.FC<HddDiskProps> = ({field, index, remove, chipset}) => {
           },
         ]}
       >
-        <InputNumber min={1} max={1024} suffix="ГБ" style={{width: '100%'}} />
+        <IntegerInput min={1} max={1024} suffix="ГБ" style={{width: '100%'}} />
       </Form.Item>
 
       {/* Interface field */}
