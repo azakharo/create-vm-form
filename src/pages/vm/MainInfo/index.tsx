@@ -17,8 +17,8 @@ const MainInfo: React.FC = () => {
   return (
     <Card
       title={
-        <Flex vertical gap={4}>
-          <Title level={4} style={{margin: 0}}>
+        <Flex vertical gap={4} style={{paddingBottom: 10}}>
+          <Title level={4} style={{margin: 0, paddingTop: 16}}>
             Основная информация
           </Title>
           <Text type="secondary">
@@ -57,6 +57,7 @@ const MainInfo: React.FC = () => {
           <Form.Item
             label="Количество CPU"
             name="cpuCount"
+            style={{marginBottom: 0}}
             rules={[
               {
                 required: true,
@@ -82,6 +83,7 @@ const MainInfo: React.FC = () => {
           <Form.Item
             label="Объём RAM"
             name="ramSize"
+            style={{marginBottom: 0}}
             rules={[
               {
                 required: true,
@@ -108,6 +110,7 @@ const MainInfo: React.FC = () => {
           <Form.Item
             label="Chipset"
             name="chipset"
+            style={{marginBottom: 0}}
             rules={[
               {
                 required: true,
