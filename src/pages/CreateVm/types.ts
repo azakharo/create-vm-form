@@ -13,4 +13,5 @@ export interface CreateVmFormValues {
   ramSize: number;
   chipset: 'q35' | 'i440';
   hddDisks: HddDisk[];
+  bootOrder: string[];
 }

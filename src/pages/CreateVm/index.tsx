@@ -3,6 +3,7 @@ import {ArrowLeftOutlined} from '@ant-design/icons';
 import type {CreateVmFormValues} from './types';
 import MainInfo from './MainInfo';
 import HddDisks from './HddDisks';
+import {BootOrder} from './BootOrder';
 
 const {Header, Content} = Layout;
 const {Title} = Typography;
@@ -65,10 +66,12 @@ export const CreateVmPage = () => {
             ramSize: 4,
             chipset: 'q35',
             hddDisks: [],
+            bootOrder: [],
           }}
         >
           <MainInfo />
           <HddDisks />
+          <BootOrder />
 
           {/* Action buttons */}
           <Form.Item style={{marginTop: '24px'}}>
