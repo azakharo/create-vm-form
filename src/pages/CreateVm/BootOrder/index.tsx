@@ -21,6 +21,7 @@ import {BootOrderItem} from './BootOrderItem';
 export const BootOrder: React.FC = () => {
   const form = Form.useFormInstance<CreateVmFormValues>();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const hddDisks = Form.useWatch('hddDisks', form) || [];
   const bootOrder = Form.useWatch('bootOrder', form) || [];
 
