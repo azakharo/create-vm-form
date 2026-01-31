@@ -1,4 +1,4 @@
-import {Form} from 'antd';
+import {Card, Form} from 'antd';
 import {
   DndContext,
   closestCenter,
@@ -17,6 +17,7 @@ import {
 import {useEffect} from 'react';
 import type {CreateVmFormValues} from '../types';
 import {BootOrderItem} from './BootOrderItem';
+import Title from 'antd/es/typography/Title';
 
 export const BootOrder: React.FC = () => {
   const form = Form.useFormInstance<CreateVmFormValues>();
@@ -72,18 +73,13 @@ export const BootOrder: React.FC = () => {
 
   return (
     <Form.Item name="bootOrder">
-      <div style={{marginBottom: '24px'}}>
-        <div
-          style={{
-            fontSize: '16px',
-            fontWeight: 500,
-            marginBottom: '16px',
-            color: '#262626',
-          }}
-        >
-          Порядок загрузки
-        </div>
-
+      <Card
+        title={
+          <Title level={4} style={{margin: 0, paddingTop: 16}}>
+            Порядок загрузки
+          </Title>
+        }
+      >
         {orderedDisks.length === 0 ? (
           <div
             style={{
@@ -113,7 +109,7 @@ export const BootOrder: React.FC = () => {
             </SortableContext>
           </DndContext>
         )}
-      </div>
+      </Card>
     </Form.Item>
   );
 };

@@ -53,6 +53,7 @@ const HddDisks: React.FC = () => {
           }}
         ></Button>
       }
+      style={{marginBottom: 24}}
     >
       <Form.Item
         name="hddDisks"
