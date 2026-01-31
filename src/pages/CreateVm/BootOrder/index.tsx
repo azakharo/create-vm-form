@@ -70,47 +70,49 @@ export const BootOrder: React.FC = () => {
     .filter(Boolean);
 
   return (
-    <div style={{marginBottom: '24px'}}>
-      <div
-        style={{
-          fontSize: '16px',
-          fontWeight: 500,
-          marginBottom: '16px',
-          color: '#262626',
-        }}
-      >
-        Порядок загрузки
-      </div>
-
-      {orderedDisks.length === 0 ? (
+    <Form.Item name="bootOrder">
+      <div style={{marginBottom: '24px'}}>
         <div
           style={{
-            padding: '24px',
-            textAlign: 'center',
-            color: '#8c8c8c',
-            backgroundColor: '#fafafa',
-            border: '1px dashed #d9d9d9',
-            borderRadius: '6px',
+            fontSize: '16px',
+            fontWeight: 500,
+            marginBottom: '16px',
+            color: '#262626',
           }}
         >
-          Нет дисков для отображения
+          Порядок загрузки
         </div>
-      ) : (
-        <DndContext
-          sensors={sensors}
-          collisionDetection={closestCenter}
-          onDragEnd={handleDragEnd}
-        >
-          <SortableContext
-            items={bootOrder}
-            strategy={verticalListSortingStrategy}
+
+        {orderedDisks.length === 0 ? (
+          <div
+            style={{
+              padding: '24px',
+              textAlign: 'center',
+              color: '#8c8c8c',
+              backgroundColor: '#fafafa',
+              border: '1px dashed #d9d9d9',
+              borderRadius: '6px',
+            }}
           >
-            {orderedDisks.map(disk => (
-              <BootOrderItem key={disk!.id} id={disk!.id} name={disk!.name} />
-            ))}
-          </SortableContext>
-        </DndContext>
-      )}
-    </div>
+            Нет дисков для отображения
+          </div>
+        ) : (
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={handleDragEnd}
+          >
+            <SortableContext
+              items={bootOrder}
+              strategy={verticalListSortingStrategy}
+            >
+              {orderedDisks.map(disk => (
+                <BootOrderItem key={disk!.id} id={disk!.id} name={disk!.name} />
+              ))}
+            </SortableContext>
+          </DndContext>
+        )}
+      </div>
+    </Form.Item>
   );
 };
