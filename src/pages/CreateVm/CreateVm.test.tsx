@@ -147,4 +147,46 @@ describe('CreateVmPage', () => {
     const chipsetSelect = screen.getByLabelText('Chipset');
     expect(chipsetSelect).toBeInTheDocument();
   });
+
+  it('should display validation error when Name field is empty on submit', async () => {
+    render(<CreateVmPage />);
+
+    // Create 1 HDD disk by clicking the "+" button
+    const addButton = screen.getByRole('button', {name: 'plus'});
+    await waitFor(() => {
+      fireEvent.click(addButton);
+    });
+
+    // Click the "Create" button without filling the Name field
+    const createButton = screen.getByRole('button', {name: /Создать/i});
+    await waitFor(() => {
+      fireEvent.click(createButton);
+    });
+
+    // Verify validation error is displayed for the Name field
+    await waitFor(() => {
+      const errorMessage = screen.getByText(
+        /Пожалуйста, введите имя виртуальной машины/i,
+      );
+      expect(errorMessage).toBeInTheDocument();
+    });
+
+    // Verify createVm is not called due to validation error
+    expect(createVm).not.toHaveBeenCalled();
+  });
+
+  it('should have q35 and i440 options in Chipset field', async () => {
+    render(<CreateVmPage />);
+
+    // Find the Chipset select
+    const chipsetSelect = screen.getByLabelText('Chipset');
+    expect(chipsetSelect).toBeInTheDocument();
+
+    // Verify both options are available in the dropdown
+    const q35Option = await screen.findByText('q35');
+    const i440Option = await screen.findByText('i440');
+
+    expect(q35Option).toBeInTheDocument();
+    expect(i440Option).toBeInTheDocument();
+  });
 });
