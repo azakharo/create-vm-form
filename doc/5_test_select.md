@@ -10,6 +10,21 @@
 * Нажать кнопку "Создать"
 * Сделать mock для функции createVm. Убедиться, что эта функция вызывается 1 раз с правильными значениями (со значениями, введёнными в форму).
 
+## Важное замечание про выбор Chipset с помощью Select
+
+Значение Chipset задаётся с помощью Select.
+Я переопределил Select из antd. Теперь он ведёт себя как обычный html select.
+Поэтому поменять значение Chipset можно с помощью примерно следующего кода:
+
+```tsx
+  const chipsetI440Option = await findByText('i440');
+
+  await userEvent.selectOptions(
+    getByLabelText('Chipset'),
+    [chipsetI440Option],
+  );
+```
+
 ## Постановка задачи. Требования
 
 * Тест нужно добавить в файл CreateVm.test.tsx.
