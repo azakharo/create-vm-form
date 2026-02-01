@@ -38,7 +38,7 @@ const MainInfo: React.FC = () => {
           <Form.Item label="Описание" name="description">
             <Input.TextArea
               placeholder="Введите описание виртуальной машины"
-              autoSize={{minRows: 2}}
+              rows={2}
             />
           </Form.Item>
         </Col>
