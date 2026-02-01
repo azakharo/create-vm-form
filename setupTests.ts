@@ -26,11 +26,14 @@ Object.defineProperty(window, 'getComputedStyle', {
 });
 
 // Mock ResizeObserver
-global.ResizeObserver = vi.fn().mockImplementation(() => ({
-  observe: vi.fn(),
-  unobserve: vi.fn(),
-  disconnect: vi.fn(),
-}));
+class ResizeObserverMock {
+  observe = vi.fn();
+  unobserve = vi.fn();
+  disconnect = vi.fn();
+}
+
+globalThis.ResizeObserver =
+  ResizeObserverMock as unknown as typeof ResizeObserver;
 
 vi.mock('antd', async () => {
   const antd = await vi.importActual<typeof import('antd')>('antd');
