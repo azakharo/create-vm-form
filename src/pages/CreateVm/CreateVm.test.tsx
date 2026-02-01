@@ -117,4 +117,34 @@ describe('CreateVmPage', () => {
 
     expect(createVm).toHaveBeenCalledWith(expectedValues);
   });
+
+  it('should render all form fields', () => {
+    render(<CreateVmPage />);
+
+    // Verify Name input field is present
+    const nameInput = screen.getByPlaceholderText(
+      /Введите имя виртуальной машины/i,
+    );
+    expect(nameInput).toBeInTheDocument();
+
+    // Verify Description textarea is present
+    const descriptionInput = screen.getByPlaceholderText(
+      /Введите описание виртуальной машины/i,
+    );
+    expect(descriptionInput).toBeInTheDocument();
+
+    // Verify CPU count input is present
+    const cpuCountInput = screen.getByPlaceholderText(
+      /Введите количество CPU/i,
+    );
+    expect(cpuCountInput).toBeInTheDocument();
+
+    // Verify RAM size input is present
+    const ramSizeInput = screen.getByPlaceholderText(/Введите объём RAM/i);
+    expect(ramSizeInput).toBeInTheDocument();
+
+    // Verify Chipset select is present
+    const chipsetSelect = screen.getByLabelText('Chipset');
+    expect(chipsetSelect).toBeInTheDocument();
+  });
 });
