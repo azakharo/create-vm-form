@@ -34,3 +34,10 @@ class ResizeObserverMock {
 
 globalThis.ResizeObserver =
   ResizeObserverMock as unknown as typeof ResizeObserver;
+
+vi.mock('antd', async () => {
+  const antd = await vi.importActual<typeof import('antd')>('antd');
+  const {SelectMock} = await import('./src/utils/testing/SelectMock');
+
+  return {...antd, Select: SelectMock};
+});
