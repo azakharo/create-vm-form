@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom/vitest';
-import {SelectMock as Select} from './src/utils/testing';
 
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
@@ -26,8 +25,16 @@ Object.defineProperty(window, 'getComputedStyle', {
   },
 });
 
-vi.mock('antd', async () => {
-  const antd = await vi.importActual('antd');
+// Mock ResizeObserver
+global.ResizeObserver = vi.fn().mockImplementation(() => ({
+  observe: vi.fn(),
+  unobserve: vi.fn(),
+  disconnect: vi.fn(),
+}));
 
-  return {...antd, Select};
+vi.mock('antd', async () => {
+  const antd = await vi.importActual<typeof import('antd')>('antd');
+  const {SelectMock} = await import('./src/utils/testing/SelectMock');
+
+  return {...antd, Select: SelectMock};
 });

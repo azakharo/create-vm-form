@@ -1,23 +1,46 @@
-import {type ChangeEvent, type LegacyRef, useCallback} from 'react';
-import {type SelectProps} from 'antd';
+import {type ChangeEvent, useCallback} from 'react';
+
+// Define types inline to avoid circular dependency with antd
+type SelectValue = string | number | (string | number)[];
+type SelectOption = {
+  label: React.ReactNode;
+  value: string | number;
+  disabled?: boolean;
+  [key: string]: unknown;
+};
+
+interface SelectMockProps {
+  ref?: React.Ref<HTMLSelectElement>;
+  mode?: 'multiple' | 'tags' | undefined;
+  onChange?: (value: SelectValue, option: unknown) => void;
+  options?: SelectOption[];
+  optionFilterProp?: string;
+  filterOption?: boolean | ((input: string, option: SelectOption) => boolean);
+  loading?: boolean;
+  value?: SelectValue;
+  defaultValue?: SelectValue;
+  disabled?: boolean;
+  placeholder?: string;
+  allowClear?: boolean;
+  showSearch?: boolean;
+  'data-testid'?: string;
+  [key: string]: unknown;
+}
 
 const normalizeValue = (
   value: string,
   isNumberValue: boolean,
 ): string | number => (isNumberValue ? Number.parseInt(value, 10) : value);
 
-export const SelectMock = ({
-  ref,
-  ...props
-}: SelectProps & {
-  ref?: React.RefObject<LegacyRef<HTMLSelectElement> | null>;
-}) => {
+export const SelectMock = ({ref, ...props}: SelectMockProps) => {
   // Здесь некоторые пропы специально извлекаются из props, чтобы не передавать их в select
 
   const {
     mode,
     onChange,
     options,
+    value,
+    defaultValue,
     /* eslint-disable @typescript-eslint/no-unused-vars */
     optionFilterProp,
     filterOption,
@@ -52,21 +75,20 @@ export const SelectMock = ({
 
   return (
     <select
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       ref={ref}
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       data-testid={props['data-testid']}
       onChange={handleChange}
       multiple={multiple}
+      value={multiple ? undefined : (value as string | number | undefined)}
+      defaultValue={
+        multiple ? undefined : (defaultValue as string | number | undefined)
+      }
       {...restProps}
     >
       {/* TODO option groups не поддерживаются */}
       {options
         ? options.map(({label, value, ...restOptProps}) => (
-            <option key={value} value={value!} {...restOptProps}>
+            <option key={value} value={value} {...restOptProps}>
               {label}
             </option>
           ))
