@@ -3,7 +3,7 @@ import {CreateVmPage} from './index';
 import {render} from '../../utils/testing';
 import {describe, it, expect, vi} from 'vitest';
 import {createVm} from '../../api';
-import userEvent from '@testing-library/user-event';
+import {userEvent} from '@testing-library/user-event';
 
 // Mock the createVm function
 vi.mock('../../api', () => ({
@@ -77,9 +77,8 @@ describe('CreateVmPage', () => {
 
     // Change the Chipset field value to i440
     const chipsetI440Option = await screen.findByText('i440');
-    await userEvent.selectOptions(screen.getByLabelText('Chipset'), [
-      chipsetI440Option,
-    ]);
+    const chipsetSelect = await screen.findByLabelText('Chipset');
+    await userEvent.selectOptions(chipsetSelect, [chipsetI440Option]);
 
     // Create 1 HDD disk by clicking the "+" button
     const addButton = screen.getByRole('button', {name: 'plus'});
