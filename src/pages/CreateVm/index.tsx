@@ -4,6 +4,7 @@ import type {CreateVmFormValues} from './types';
 import MainInfo from './MainInfo';
 import HddDisks from './HddDisks';
 import {BootOrder} from './BootOrder';
+import {createVm} from '../../api';
 
 const {Header, Content} = Layout;
 const {Title} = Typography;
@@ -15,8 +16,7 @@ export const CreateVmPage = () => {
     form
       .validateFields()
       .then(values => {
-        // Log the form state (values entered by the user)
-        console.log('Form values:', values);
+        return createVm(values);
       })
       .catch(error => {
         console.log('Validation failed:', error);
