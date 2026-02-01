@@ -118,7 +118,7 @@ describe('CreateVmPage', () => {
     expect(createVm).toHaveBeenCalledWith(expectedValues);
   });
 
-  it('should render all form fields', () => {
+  it('should render all form fields from Main Info section', () => {
     render(<CreateVmPage />);
 
     // Verify Name input field is present
